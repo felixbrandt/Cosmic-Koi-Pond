@@ -1,0 +1,56 @@
+﻿<Window x:Class="CosmicKoiPond.VideoOutput"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="VideoOutput"
+        Width="1400"
+        Height="1050"
+        KeyDown="Window_KeyDown"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        mc:Ignorable="d">
+
+    <Grid Name="Body">
+        <MediaElement Name="BackgroundMusic"
+                      LoadedBehavior="Manual"
+                      Source="Sound/background_main.wav" />
+        <MediaElement Name="OutroMusic"
+                      LoadedBehavior="Manual"
+                      Source="Sound/outro.wav" />
+        <MediaElement Name="BackgroundVideo"
+                      IsMuted="True"
+                      MediaEnded="BackgroundVideo_OnMediaEnded"
+                      Source="Videos/main.mp4"
+                      Opacity="1"
+                      Stretch="UniformToFill"
+                      UnloadedBehavior="Manual" />
+        <!--  Use this rectangle to dim the background video  -->
+        <!-- <Rectangle Height="Auto" Width="Auto" Fill="Black" Opacity="0.3"></Rectangle> -->
+        <Canvas Name="MyCanvas" />
+        <Canvas Name="LillypadCanvas" />
+        
+        <MediaElement Name="StartVideo"
+                      IsMuted="True"
+                      LoadedBehavior="Manual"
+                      MediaEnded="IntroVideo_OnMediaEnded"
+                      Opacity="1"
+                      Source="Videos/start.mp4"
+                      Stretch="UniformToFill"
+                      UnloadedBehavior="Manual" />
+
+        <MediaElement Name="CreditsVideo"
+                      IsMuted="True"
+                      LoadedBehavior="Manual"
+                      MediaEnded="CreditsVideo_MediaEnded"
+                      Opacity="0"
+                      Source="Videos/credits.mp4"
+                      Stretch="UniformToFill"
+                      UnloadedBehavior="Manual" />
+
+        <Image Width="Auto"
+               Height="Auto"
+               Source="Images/frame.png"
+               Stretch="Fill" />
+    </Grid>
+</Window>
